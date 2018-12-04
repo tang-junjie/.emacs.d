@@ -1,0 +1,19 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("The Emacs Editor"
+ (front-context-string . "\nThe Emacs Edito")
+ (rear-context-string . "rib,  Up: (dir)\n")
+ (position . 1138)
+ (filename . "c:/GNU/bin/emacs/share/info/emacs")
+ (info-node . "Top")
+ (handler . Info-bookmark-jump))
+("An Introduction to Programming Emacs Lisp"
+ (front-context-string . "This is an ‘Intr")
+ (rear-context-string . "**************\n\n")
+ (position . 1642)
+ (filename . "c:/GNU/bin/emacs/share/info/eintr")
+ (info-node . "Top")
+ (handler . Info-bookmark-jump))
+)
