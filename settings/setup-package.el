@@ -157,6 +157,7 @@ re-downloaded in order to locate PACKAGE."
      mouse-slider-mode                  ;* scale numbers dragged under the mouse
      multifiles                         ;* View and edit parts of multiple files in one buffer
      multiple-cursors                   ;* Multiple cursors for Emacs.
+     nasm-mode                          ;* NASM x86 assembly major mode
      neotree                            ;* A tree plugin like NerdTree for Vim
      nodejs-repl                        ;* Run Node.js REPL
      nyan-mode                          ;* Nyan Cat shows position in current buffer in mode-line.
