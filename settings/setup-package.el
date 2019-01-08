@@ -163,6 +163,7 @@ re-downloaded in order to locate PACKAGE."
      nyan-mode                          ;* Nyan Cat shows position in current buffer in mode-line.
      ob-restclient                      ;* org-babel functions for restclient-mode
      org                                ;* Outline-based notes management and organizer
+     org-brain                          ;* Org-mode concept mapping
      org-page                           ;* a static site generator based on org mode
      paredit                            ;* minor mode for editing parentheses
      paredit-everywhere                 ;* Enable some paredit features in non-lisp buffers
