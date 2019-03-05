@@ -474,23 +474,23 @@
 ;; Open in external app
 (global-set-key (kbd "s-<f6>") 'xah-open-in-external-app)
 
-;; Toggle kakapo-mode
-(global-set-key (kbd "<f7>") 'kakapo-mode)
+;; Toggle focus-mode
+(global-set-key (kbd "<f7>") 'focus-mode)
 
 ;; Toggle minimap-mode
 (global-set-key (kbd "s-<f7>") 'minimap-mode)
 
-;; Toggle zen-mode
-(global-set-key (kbd "<f8>") 'zen-mode)
-
-;; Toggle focus-mode
-(global-set-key (kbd "s-<f8>") 'focus-mode)
+;; Toggle kakapo-mode
+(global-set-key (kbd "<f8>") 'kakapo-mode)
 
 ;; Toggle litable-mode
-(global-set-key (kbd "<f9>") 'litable-mode)
+(global-set-key (kbd "s-<f8>") 'litable-mode)
 
 ;; Toggle elmacro-mode
-(global-set-key (kbd "<s-f9>") 'elmacro-mode)
+(global-set-key (kbd "<f9>") 'elmacro-mode)
+
+;; Toggle macrostep-mode
+(global-set-key (kbd "s-<f9>") 'macrostep-mode)
 
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "<f10>") 'menu-bar-mode)
