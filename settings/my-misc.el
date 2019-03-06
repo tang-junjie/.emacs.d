@@ -112,9 +112,6 @@
 ;; Make zooming affect frame instead of buffers
 (require 'zoom-frm)
 
-;; Distraction free editing mode for emacs
-(require 'zen-mode)
-
 ;; A calendar framework for Emacs
 (require 'calfw)
 
