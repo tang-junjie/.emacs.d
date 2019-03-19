@@ -23,7 +23,7 @@
 (nyan-mode t)
 
 ;; Configure theme-looper
-(theme-looper-set-theme-set '(default-black emacs-nw deep-blue solarized-dark zerodark leuven))
+;(theme-looper-set-favorite-themes '(default-black emacs-nw deep-blue solarized-dark zerodark leuven))
 
 ;; Displays a tab bar at the top
 (tabbar-mode t)
