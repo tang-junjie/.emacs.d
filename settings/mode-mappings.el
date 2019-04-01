@@ -48,6 +48,7 @@
 ;; HTML
 (autoload 'web-mode "web-mode")
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tag$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.vm$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs$" . html-mode))
