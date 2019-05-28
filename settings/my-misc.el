@@ -23,7 +23,7 @@
 (nyan-mode t)
 
 ;; Configure theme-looper
-(theme-looper-set-favorite-themes '(default-black leuven))
+(theme-looper-set-favorite-themes '(leuven solarized-dark))
 
 ;; Displays a tab bar at the top
 (tabbar-mode t)
