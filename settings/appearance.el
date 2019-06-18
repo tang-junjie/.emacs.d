@@ -44,7 +44,9 @@
     (add-to-list 'custom-theme-load-path path)))
 
 ;; Load default color theme
-(load-theme 'leuven)
+(if (file-exists-p (concat user-emacs-directory "elpa"))
+    (load-theme 'solarized-dark)
+  (load-theme 'default-black))
 
 ;; Don't defer screen updates when performing operations
 (setq redisplay-dont-pause t)
