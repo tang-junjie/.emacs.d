@@ -135,4 +135,7 @@
 (setq desktop-restore-frames nil)
 (desktop-save-mode 1)
 
+;; Solarized for Emacs
+(load-theme 'solarized-dark t)
+
 ;;; init.el ends here

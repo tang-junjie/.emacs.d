@@ -170,7 +170,6 @@ re-downloaded in order to locate PACKAGE."
      paren-face                         ;* a face for parentheses in lisp modes
      pcre2el                            ;* regexp syntax converter
      persistent-scratch                 ;* Preserve the scratch buffer across Emacs sessions
-     php-mode                           ;* Major mode for editing PHP code
      plantuml-mode                      ;* Major mode for PlantUML
      powerline                          ;* Rewrite of Powerline
      py-autopep8                        ;* Use autopep8 to beautify a Python buffer
