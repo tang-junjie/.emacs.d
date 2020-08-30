@@ -21,6 +21,9 @@
 ;; Suppressing ad-handle-definition Warnings when functions are redefined with defadvice
 (setq ad-redefinition-action 'accept)
 
+;; Suppressing Package cl is deprecated warning message
+(setq byte-compile-warnings '(cl-functions))
+
 ;; Set path to dependencies
 (defvar --site-lisp-dir (expand-file-name "site-lisp" user-emacs-directory))
 (defvar --settings-dir (expand-file-name "settings" user-emacs-directory))
@@ -53,9 +56,6 @@
 (defvar is-linux (equal system-type 'gnu/linux))
 (defvar is-windows (equal system-type 'windows-nt))
 
-;; CommonLisp library for Emacs
-(require 'cl-lib)
-
 ;; Setup packages
 (require 'setup-package)
 
@@ -72,12 +72,10 @@
 (require 'setup-rgrep)
 (require 'setup-clang)
 (require 'setup-hippie)
-(require 'setup-python)
 (require 'setup-company)
 (require 'setup-paredit)
 (require 'setup-diminish)
 (require 'setup-register)
-(require 'setup-web-mode)
 (require 'setup-yasnippet)
 
 ;; Map files to modes
@@ -96,14 +94,13 @@
     (load file)))
 
 ;; Language specific setup files
-(eval-after-load 'js2-mode '(require 'setup-js2-mode))
+(eval-after-load 'js-mode '(require 'setup-js-mode))
+(eval-after-load 'web-mode '(require 'setup-web-mode))
 (eval-after-load 'markdown-mode '(require 'setup-markdown-mode))
 
 ;; Load stuff on demand
 (autoload 'slime "setup-slime" nil t)
 (autoload 'elnode "setup-elnode" nil t)
-(autoload 'skewer-start "setup-skewer" nil t)
-(autoload 'skewer-demo "setup-skewer" nil t)
 (eval-after-load 'flycheck '(require 'setup-flycheck))
 
 (require 'delsel)
@@ -134,8 +131,5 @@
 ;; Saving emacs sessions
 (setq desktop-restore-frames nil)
 (desktop-save-mode 1)
-
-;; Solarized for Emacs
-(load-theme 'solarized-dark t)
 
 ;;; init.el ends here

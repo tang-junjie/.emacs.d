@@ -44,7 +44,7 @@
     (add-to-list 'custom-theme-load-path path)))
 
 ;; Load default color theme default-black
-(load-theme 'default-black)
+(load-theme 'deep-blue)
 
 ;; Don't defer screen updates when performing operations
 (setq redisplay-dont-pause t)

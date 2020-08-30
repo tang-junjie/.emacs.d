@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-;; Some nonstandard editing and utility commands for Emacs
+;; Some non-standard editing and utility commands for Emacs
 (require 'misc)
 
 ;; Various extension functions for Calc
@@ -23,14 +23,10 @@
 (nyan-mode t)
 
 ;; Configure theme-looper
-(theme-looper-set-favorite-themes '(solarized-dark leuven default-black))
-
-;; Displays a tab bar at the top
-(tabbar-mode t)
+(theme-looper-set-favorite-themes '(deep-blue monokai zerodark solarized-dark leuven))
 
 ;; Displays available keybindings in popup
 (which-key-mode t)
-(setq projectile-completion-system 'ivy)
 
 ;; Display time
 (display-time-mode t)
@@ -46,11 +42,6 @@
 
 ;; Add lorem ipsum filler text to Emacs
 (lorem-ipsum-use-default-bindings)
-
-;; A simple-minded way of managing window configs in emacs
-(eyebrowse-mode t)
-(add-to-list 'window-persistent-parameters '(window-side . writable))
-(add-to-list 'window-persistent-parameters '(window-slot . writable))
 
 ;; Fold text like in Vim
 (vimish-fold-global-mode t)
@@ -97,9 +88,6 @@
                   (make-glyph-code hi 'escape-glyph)
                   (make-glyph-code low 'escape-glyph)))
     (setq i (+ i 1))))
-
-;; Enable the templates for php-mode
-(eval-after-load 'php-mode '(require 'php-ext))
 
 ;; A *visual* way to choose a window to switch to
 (setq switch-window-threshold 2)
@@ -239,6 +227,14 @@
 (define-key neotree-mode-map (kbd "v") 'neotree-quick-look)
 (define-key neotree-mode-map (kbd "h") 'neotree-hidden-file-toggle)
 
+;; Projectile is a project interaction library for Emacs
+(projectile-mode t)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; Perspective for Emacs
+(require 'perspective)
+(persp-mode t)
+
 ;; View, stage and revert Git changes straight from the buffer
 (global-git-gutter+-mode)
 (eval-after-load 'git-gutter+
@@ -276,13 +272,11 @@
     (make-directory --temp-dir))
 (setq abbrev-file-name (expand-file-name "abbrev_defs" --temp-dir)
       tramp-persistency-file-name (expand-file-name "tramp" --temp-dir)
-      url-cookie-file (expand-file-name "cookies" url-configuration-directory)
       ac-user-directory --temp-dir
       mc/list-file (expand-file-name ".mc-lists.el" --temp-dir)
       smex-save-file (expand-file-name "smex-items" --temp-dir)
       vimish-fold-dir (expand-file-name "vimish-fold" --temp-dir)
       litable-list-file (expand-file-name ".litable-lists.el" --temp-dir)
-      indium-workspace-file (expand-file-name "indium-workspaces.el" --temp-dir)
       auto-save-file-name-transforms `((".*" ,--temp-dir t))
       auto-save-list-file-prefix (expand-file-name "auto-save-list/.auto-saves-" --temp-dir))
 

@@ -22,6 +22,7 @@
 /.persistent-scratch
 /early-init.el
 /package-quickstart.el
+/projectile-bookmarks.eld
 
 *.~
 *.elc

@@ -366,9 +366,6 @@
 (global-set-key (kbd "C-c f D") 'vimish-fold-delete)
 (global-set-key (kbd "C-c f T") 'vimish-fold-toggle)
 
-;; Find file at point
-(global-set-key (kbd "C-c C-c f") 'ffip)
-
 ;; Find files by name and display results in dired
 (global-set-key (kbd "M-s-f") 'find-name-dired)
 
@@ -401,13 +398,12 @@
 (global-set-key (kbd "H-w") #'aya-create)
 (global-set-key (kbd "H-y") #'aya-expand)
 
-;; Tabbar
-(define-key tabbar-mode-map (kbd "C-c <right>") 'tabbar-forward)
-(define-key tabbar-mode-map (kbd "C-c <left>") 'tabbar-backward)
-(define-key tabbar-mode-map (kbd "C-c C-<right>") 'tabbar-forward-tab)
-(define-key tabbar-mode-map (kbd "C-c C-<left>") 'tabbar-backward-tab)
-(define-key tabbar-mode-map (kbd "C-c M-<right>") 'tabbar-forward-group)
-(define-key tabbar-mode-map (kbd "C-c M-<left>") 'tabbar-backward-group)
+;; Tab bar
+(global-set-key (kbd "C-c C-<right>") 'tab-bar-switch-to-next-tab)
+(global-set-key (kbd "C-c C-<left>") 'tab-bar-switch-to-prev-tab)
+(global-set-key (kbd "C-c C-w") 'tab-bar-close-tab)
+(global-set-key (kbd "C-c M-w") 'tab-bar-close-other-tabs)
+(global-set-key (kbd "C-c M-n") 'tab-bar-new-tab)
 
 ;; Transparent frame
 (global-set-key (kbd "C-c .") 'frame-transparency)
@@ -424,43 +420,30 @@
 
 ;; Find file in project, with specific patterns
 (global-unset-key (kbd "C-x C-p")) ;; which used to be delete-blank-lines (also bound to C-c C-<return>)
-(global-set-key (kbd "C-x C-p ja") (ffip-create-pattern-file-finder "*.java"))
 (global-set-key (kbd "C-x C-p js") (ffip-create-pattern-file-finder "*.js"))
+(global-set-key (kbd "C-x C-p ts") (ffip-create-pattern-file-finder "*.ts"))
+(global-set-key (kbd "C-x C-p vu") (ffip-create-pattern-file-finder "*.jsx"))
+(global-set-key (kbd "C-x C-p vu") (ffip-create-pattern-file-finder "*.vue"))
 (global-set-key (kbd "C-x C-p jn") (ffip-create-pattern-file-finder "*.json"))
 (global-set-key (kbd "C-x C-p ht") (ffip-create-pattern-file-finder "*.html"))
-(global-set-key (kbd "C-x C-p jp") (ffip-create-pattern-file-finder "*.jsp"))
 (global-set-key (kbd "C-x C-p cs") (ffip-create-pattern-file-finder "*.css"))
-(global-set-key (kbd "C-x C-p ft") (ffip-create-pattern-file-finder "*.feature"))
-(global-set-key (kbd "C-x C-p cl") (ffip-create-pattern-file-finder "*.clj"))
 (global-set-key (kbd "C-x C-p el") (ffip-create-pattern-file-finder "*.el"))
-(global-set-key (kbd "C-x C-p ed") (ffip-create-pattern-file-finder "*.edn"))
 (global-set-key (kbd "C-x C-p md") (ffip-create-pattern-file-finder "*.md"))
-(global-set-key (kbd "C-x C-p rb") (ffip-create-pattern-file-finder "*.rb"))
 (global-set-key (kbd "C-x C-p or") (ffip-create-pattern-file-finder "*.org"))
-(global-set-key (kbd "C-x C-p ph") (ffip-create-pattern-file-finder "*.php"))
 (global-set-key (kbd "C-x C-p tx") (ffip-create-pattern-file-finder "*.txt"))
-(global-set-key (kbd "C-x C-p vm") (ffip-create-pattern-file-finder "*.vm"))
 (global-set-key (kbd "C-x C-p xm") (ffip-create-pattern-file-finder "*.xml"))
 (global-set-key (kbd "C-x C-p in") (ffip-create-pattern-file-finder "*.ini"))
-(global-set-key (kbd "C-x C-p pr") (ffip-create-pattern-file-finder "*.properties"))
-(global-set-key (kbd "C-x C-p in") (ffip-create-pattern-file-finder "*.ini"))
-(global-set-key (kbd "C-x C-p gr") (ffip-create-pattern-file-finder "*.groovy"))
-(global-set-key (kbd "C-x C-p ga") (ffip-create-pattern-file-finder "*.gradle"))
-(global-set-key (kbd "C-x C-p sc") (ffip-create-pattern-file-finder "*.scala"))
 (global-set-key (kbd "C-x C-p ss") (ffip-create-pattern-file-finder "*.scss"))
 (global-set-key (kbd "C-x C-p co") (ffip-create-pattern-file-finder "*.conf"))
-(global-set-key (kbd "C-x C-p j2") (ffip-create-pattern-file-finder "*.j2"))
 (global-set-key (kbd "C-x C-p sh") (ffip-create-pattern-file-finder "*.sh"))
 (global-set-key (kbd "C-x C-p ic") (ffip-create-pattern-file-finder "*.ico"))
 (global-set-key (kbd "C-x C-p sv") (ffip-create-pattern-file-finder "*.svg"))
-(global-set-key (kbd "C-x C-p vu") (ffip-create-pattern-file-finder "*.vue"))
-(global-set-key (kbd "C-x C-p c#") (ffip-create-pattern-file-finder "*.cs"))
 (global-set-key (kbd "C-x C-p c++") (ffip-create-pattern-file-finder "*.cpp"))
 (global-set-key (kbd "C-x C-p cc") (ffip-create-pattern-file-finder "*.c"))
 (global-set-key (kbd "C-x C-p !") (ffip-create-pattern-file-finder "*"))
 
 ;; List Packages
-(global-set-key (kbd "<s-f3>") 'list-packages)
+(global-set-key (kbd "<f3>") 'list-packages)
 
 ;; Toggle Elisp debugger
 (global-set-key (kbd "<f5>") 'sai/toggle-elisp-debugger)

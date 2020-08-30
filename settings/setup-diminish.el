@@ -18,6 +18,8 @@
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
 (eval-after-load "rainbow-mode" '(diminish 'rainbow-mode))
 (eval-after-load "drag-stuff" '(diminish 'drag-stuff-mode))
+(eval-after-load "Projectile" '(diminish 'projectile-mode))
+(eval-after-load "company-box" '(diminish 'company-box-mode))
 (eval-after-load "dtrt-indent" '(diminish 'dtrt-indent-mode))
 (eval-after-load "git-gutter+" '(diminish 'git-gutter+-mode))
 (eval-after-load "EditorConfig" '(diminish 'editorconfig-mode))
@@ -29,8 +31,6 @@
   `(eval-after-load ,package-name
      '(defadvice ,mode (after rename-modeline activate)
         (setq mode-name ,new-name))))
-
-(rename-modeline "js2-mode" js2-mode "JS2")
 
 (provide 'setup-diminish)
 ;;; setup-diminish.el ends here
