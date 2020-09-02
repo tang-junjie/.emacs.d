@@ -13,11 +13,10 @@
 (setq package-enable-at-startup nil)
 
 ;; Set up package archives
-(setq package-check-signature nil)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(unless (assoc-default "melpa" package-archives)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
+(unless (assoc-default "org" package-archives)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
 
 ;; Pin package to specific archive
 (setq package-pinned-packages '(()))
@@ -176,6 +175,7 @@ re-downloaded in order to locate PACKAGE."
      string-edit                        ;* Avoid escape nightmares by editing string in separate buffer
      suggest                            ;* suggest elisp functions that give the output requested
      switch-window                      ;* A *visual* way to choose a window to switch to
+     tabbar                             ;* Display a tab bar in the header line
      theme-looper                       ;* Loop thru the available color-themes
      tide                               ;* Typescript Interactive Development Environment
      try                                ;* Try out Emacs packages.
@@ -199,6 +199,11 @@ re-downloaded in order to locate PACKAGE."
   (error
    (package-refresh-contents)
    (init--install-packages)))
+
+;; install org-plus-contrib after initial startup only if not already installed
+(add-hook 'after-init-hook #'(lambda() (unless (package-installed-p 'org-plus-contrib)
+                                    (package-refresh-contents)
+                                    (package-install 'org-plus-contrib))))
 
 (provide 'setup-package)
 ;;; setup-package.el ends here

@@ -22,6 +22,9 @@
 ;; Nyan cat
 (nyan-mode t)
 
+;; Displays a tab bar at the top
+(tabbar-mode t)
+
 ;; Configure theme-looper
 (theme-looper-set-favorite-themes '(deep-blue monokai zerodark solarized-dark leuven))
 
@@ -59,6 +62,7 @@
 (setq browse-kill-ring-quit-action 'save-and-restore)
 
 ;; Represent undo-history as an actual tree (visualize with C-x u)
+(require 'undo-tree)
 (setq undo-tree-mode-lighter "")
 (setq undo-tree-visualizer-diff t)
 (global-undo-tree-mode t)

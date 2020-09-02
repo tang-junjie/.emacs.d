@@ -398,12 +398,13 @@
 (global-set-key (kbd "H-w") #'aya-create)
 (global-set-key (kbd "H-y") #'aya-expand)
 
-;; Tab bar
-(global-set-key (kbd "C-c C-<right>") 'tab-bar-switch-to-next-tab)
-(global-set-key (kbd "C-c C-<left>") 'tab-bar-switch-to-prev-tab)
-(global-set-key (kbd "C-c C-w") 'tab-bar-close-tab)
-(global-set-key (kbd "C-c M-w") 'tab-bar-close-other-tabs)
-(global-set-key (kbd "C-c M-n") 'tab-bar-new-tab)
+;; Tabbar
+(define-key tabbar-mode-map (kbd "C-c <right>") 'tabbar-forward)
+(define-key tabbar-mode-map (kbd "C-c <left>") 'tabbar-backward)
+(define-key tabbar-mode-map (kbd "C-c C-<right>") 'tabbar-forward-tab)
+(define-key tabbar-mode-map (kbd "C-c C-<left>") 'tabbar-backward-tab)
+(define-key tabbar-mode-map (kbd "C-c M-<right>") 'tabbar-forward-group)
+(define-key tabbar-mode-map (kbd "C-c M-<left>") 'tabbar-backward-group)
 
 ;; Transparent frame
 (global-set-key (kbd "C-c .") 'frame-transparency)
