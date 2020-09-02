@@ -233,6 +233,7 @@
 
 ;; Projectile is a project interaction library for Emacs
 (projectile-mode t)
+(setq projectile-completion-system 'ivy)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; Perspective for Emacs
