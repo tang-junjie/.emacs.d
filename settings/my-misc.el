@@ -39,6 +39,7 @@
 
 ;; An Emacs "jump to definition" package
 (dumb-jump-mode t)
+(add-to-list 'xref-backend-functions 'dumb-jump-xref-activate t)
 
 ;; Persistent scratch
 (persistent-scratch-setup-default)
@@ -245,18 +246,18 @@
 (eval-after-load 'git-gutter+
   '(progn
      ;; Jump between hunks
-     (define-key git-gutter+-mode-map (kbd "C-x M-g n") 'git-gutter+-next-hunk)
-     (define-key git-gutter+-mode-map (kbd "C-x M-g p") 'git-gutter+-previous-hunk)
+     (define-key git-gutter+-mode-map (kbd "s-g n") 'git-gutter+-next-hunk)
+     (define-key git-gutter+-mode-map (kbd "s-g p") 'git-gutter+-previous-hunk)
      ;; Act on hunks
-     (define-key git-gutter+-mode-map (kbd "C-x M-g v =") 'git-gutter+-show-hunk)
-     (define-key git-gutter+-mode-map (kbd "C-x M-g r") 'git-gutter+-revert-hunks)
+     (define-key git-gutter+-mode-map (kbd "s-g v") 'git-gutter+-show-hunk)
+     (define-key git-gutter+-mode-map (kbd "s-g r") 'git-gutter+-revert-hunks)
      ;; Stage hunk at point.
      ;; If region is active, stage all hunk lines within the region.
-     (define-key git-gutter+-mode-map (kbd "C-x M-g t") 'git-gutter+-stage-hunks)
-     (define-key git-gutter+-mode-map (kbd "C-x M-g c") 'git-gutter+-commit)
-     (define-key git-gutter+-mode-map (kbd "C-x M-g C") 'git-gutter+-stage-and-commit)
-     (define-key git-gutter+-mode-map (kbd "C-x M-g C-y") 'git-gutter+-stage-and-commit-whole-buffer)
-     (define-key git-gutter+-mode-map (kbd "C-x M-g U") 'git-gutter+-unstage-whole-buffer)))
+     (define-key git-gutter+-mode-map (kbd "s-g t") 'git-gutter+-stage-hunks)
+     (define-key git-gutter+-mode-map (kbd "s-g c") 'git-gutter+-commit)
+     (define-key git-gutter+-mode-map (kbd "s-g C") 'git-gutter+-stage-and-commit)
+     (define-key git-gutter+-mode-map (kbd "s-g C-y") 'git-gutter+-stage-and-commit-whole-buffer)
+     (define-key git-gutter+-mode-map (kbd "s-g U") 'git-gutter+-unstage-whole-buffer)))
 
 ;; Write backup files to own directory
 (defvar --backups-dir (concat user-emacs-directory "backups/"))

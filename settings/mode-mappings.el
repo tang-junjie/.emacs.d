@@ -4,9 +4,6 @@
 
 ;;; Code:
 
-;; PlantUML
-(add-to-list 'auto-mode-alist '("\\.plantuml$'" . plantuml-mode))
-
 ;; Emacs lisp
 (add-to-list 'auto-mode-alist '("Carton$" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("Cask$" . emacs-lisp-mode))
@@ -22,7 +19,7 @@
 
 ;; HTML
 (add-to-list 'auto-mode-alist '("\\.html$'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.cshtml$'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.cshtm$'" . web-mode))
 
 ;; Web-mode
 (add-to-list 'auto-mode-alist '("\\.vue$'" . web-mode))
@@ -40,6 +37,14 @@
 
 ;; Org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
+;; PlantUML
+(add-to-list 'auto-mode-alist '("\\.plantuml$'" . plantuml-mode))
+
+;; YAML
+(autoload 'yaml-mode "yaml-mode")
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
 
 ;; Apache config
 (autoload 'apache-mode "apache-mode" nil t)
