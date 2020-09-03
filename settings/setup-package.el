@@ -101,6 +101,7 @@ re-downloaded in order to locate PACKAGE."
      elmacro                            ;* find callers of elisp functions or macros
      elnode                             ;* The Emacs webserver.
      emmet-mode                         ;* Unofficial Emmet's support for emacs
+     emmojify                           ;* Display emojis in Emacs
      eshell-bookmark                    ;* Integrate bookmarks with eshell.
      eslint-fix                         ;* Fix JavaScript files using ESLint
      esup                               ;* the Emacs StartUp Profiler (ESUP)
