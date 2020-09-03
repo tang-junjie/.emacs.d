@@ -174,6 +174,7 @@ re-downloaded in order to locate PACKAGE."
      smex                               ;* M-x interface with Ido-style fuzzy matching.
      solarized-theme                    ;* The Solarized color theme, ported to Emacs.
      string-edit                        ;* Avoid escape nightmares by editing string in separate buffer
+     stylus-mode                        ;* Major mode for editing .jade files
      suggest                            ;* suggest elisp functions that give the output requested
      switch-window                      ;* A *visual* way to choose a window to switch to
      tabbar                             ;* Display a tab bar in the header line
