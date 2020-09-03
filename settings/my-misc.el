@@ -114,6 +114,9 @@
 ;; Colorize color names in css-mode
 (add-hook 'css-mode-hook 'rainbow-mode)
 
+;; Display emojis in Emacs
+(add-hook 'after-init-hook #'global-emojify-mode)
+
 ;; Highlight escape sequences
 (hes-mode t)
 (put 'font-lock-regexp-grouping-backslash 'face-alias 'font-lock-builtin-face)
@@ -192,9 +195,9 @@
         ("fr" . "en")))
 
 ;; Emacs frontend for weather web service wttr.in
-(setq wttrin-default-cities '("Langley"
+(setq wttrin-default-cities '("Vancouver"
+                              "Langley"
                               "Surrey"
-                              "Vancouver"
                               "Montreal"
                               "Dalian"
                               "Beijing"))

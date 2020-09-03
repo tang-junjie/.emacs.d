@@ -101,7 +101,7 @@ re-downloaded in order to locate PACKAGE."
      elmacro                            ;* find callers of elisp functions or macros
      elnode                             ;* The Emacs webserver.
      emmet-mode                         ;* Unofficial Emmet's support for emacs
-     emmojify                           ;* Display emojis in Emacs
+     emojify                            ;* Display emojis in Emacs
      eshell-bookmark                    ;* Integrate bookmarks with eshell.
      eslint-fix                         ;* Fix JavaScript files using ESLint
      esup                               ;* the Emacs StartUp Profiler (ESUP)
@@ -203,8 +203,8 @@ re-downloaded in order to locate PACKAGE."
 
 ;; install org-plus-contrib after initial startup only if not already installed
 (add-hook 'after-init-hook #'(lambda() (unless (package-installed-p 'org-plus-contrib)
-                                    (package-refresh-contents)
-                                    (package-install 'org-plus-contrib))))
+                                         (package-refresh-contents)
+                                         (package-install 'org-plus-contrib))))
 
 (provide 'setup-package)
 ;;; setup-package.el ends here
