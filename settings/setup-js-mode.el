@@ -16,10 +16,8 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  (company-mode +1))
-
-(setq company-tooltip-align-annotations t)
-
+  (company-mode +1)
+  (setq company-tooltip-align-annotations t))
 (add-hook 'js-mode-hook #'setup-tide-mode)
 
 ;; fix current file using ESLint --fix
