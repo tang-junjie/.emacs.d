@@ -19,18 +19,21 @@
   (company-mode +1)
   (setq company-tooltip-align-annotations t))
 (add-hook 'js-mode-hook #'setup-tide-mode)
+(add-hook 'web-mode-hook #'setup-tide-mode)
 
 ;; fix current file using ESLint --fix
 (require 'eslint-fix)
 (eval-after-load 'js-mode
   '(add-hook 'js-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+(eval-after-load 'web-mode
+  '(add-hook 'web-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
 
 ;; formatting with Prettier
 (require 'prettier-js)
 (add-hook 'js-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)
 (setq prettier-js-args '(
-                         "--trailing-comma" "none"
+                         "--trailing-comma" "es5"
                          "--bracket-spacing" "true"
                          "--single-quote" "true"
                          "--no-semi" "true"

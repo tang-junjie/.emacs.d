@@ -22,9 +22,6 @@
 ;; Nyan cat
 (nyan-mode t)
 
-;; Displays a tab bar at the top
-(tabbar-mode t)
-
 ;; Configure theme-looper
 (theme-looper-set-favorite-themes '(deep-blue monokai zerodark solarized-dark leuven))
 
@@ -224,17 +221,6 @@
 ;; Edit multiple regions simultaneously in a buffer or a region
 (require 'iedit)
 
-;; A emacs tree plugin like NerdTree for Vim
-(require 'neotree)
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-(setq projectile-switch-project-action 'neotree-projectile-action)
-(setq neo-window-fixed-size nil)
-(define-key neotree-mode-map (kbd "TAB") 'neotree-enter)
-(define-key neotree-mode-map (kbd "RET") 'neotree-enter)
-(define-key neotree-mode-map (kbd "q") 'neotree-hide)
-(define-key neotree-mode-map (kbd "v") 'neotree-quick-look)
-(define-key neotree-mode-map (kbd "h") 'neotree-hidden-file-toggle)
-
 ;; Projectile is a project interaction library for Emacs
 (projectile-mode t)
 (setq projectile-completion-system 'ivy)
@@ -244,23 +230,47 @@
 (require 'perspective)
 (persp-mode t)
 
+;; Displays a tab bar at the top
+(tabbar-mode t)
+(eval-after-load 'tabbar-mode
+  '(progn
+     (define-key tabbar-mode-map (kbd "C-c <right>") 'tabbar-forward)
+     (define-key tabbar-mode-map (kbd "C-c <left>") 'tabbar-backward)
+     (define-key tabbar-mode-map (kbd "C-c C-<right>") 'tabbar-forward-tab)
+     (define-key tabbar-mode-map (kbd "C-c C-<left>") 'tabbar-backward-tab)
+     (define-key tabbar-mode-map (kbd "C-c M-<right>") 'tabbar-forward-group)
+     (define-key tabbar-mode-map (kbd "C-c M-<left>") 'tabbar-backward-group)))
+
+;; A emacs tree plugin like NerdTree for Vim
+(require 'neotree)
+(eval-after-load 'neotree-mode
+  '(progn
+     (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+     (setq projectile-switch-project-action 'neotree-projectile-action)
+     (setq neo-window-fixed-size nil)
+     (define-key neotree-mode-map (kbd "TAB") 'neotree-enter)
+     (define-key neotree-mode-map (kbd "RET") 'neotree-enter)
+     (define-key neotree-mode-map (kbd "q") 'neotree-hide)
+     (define-key neotree-mode-map (kbd "v") 'neotree-quick-look)
+     (define-key neotree-mode-map (kbd "h") 'neotree-hidden-file-toggle)))
+
 ;; View, stage and revert Git changes straight from the buffer
 (global-git-gutter+-mode)
 (eval-after-load 'git-gutter+
   '(progn
      ;; Jump between hunks
-     (define-key git-gutter+-mode-map (kbd "s-g n") 'git-gutter+-next-hunk)
-     (define-key git-gutter+-mode-map (kbd "s-g p") 'git-gutter+-previous-hunk)
+     (define-key git-gutter+-mode-map (kbd "C-x M-g n") 'git-gutter+-next-hunk)
+     (define-key git-gutter+-mode-map (kbd "C-x M-g p") 'git-gutter+-previous-hunk)
      ;; Act on hunks
-     (define-key git-gutter+-mode-map (kbd "s-g v") 'git-gutter+-show-hunk)
-     (define-key git-gutter+-mode-map (kbd "s-g r") 'git-gutter+-revert-hunks)
+     (define-key git-gutter+-mode-map (kbd "C-x M-g v") 'git-gutter+-show-hunk)
+     (define-key git-gutter+-mode-map (kbd "C-x M-g r") 'git-gutter+-revert-hunks)
      ;; Stage hunk at point.
      ;; If region is active, stage all hunk lines within the region.
-     (define-key git-gutter+-mode-map (kbd "s-g t") 'git-gutter+-stage-hunks)
-     (define-key git-gutter+-mode-map (kbd "s-g c") 'git-gutter+-commit)
-     (define-key git-gutter+-mode-map (kbd "s-g C") 'git-gutter+-stage-and-commit)
-     (define-key git-gutter+-mode-map (kbd "s-g C-y") 'git-gutter+-stage-and-commit-whole-buffer)
-     (define-key git-gutter+-mode-map (kbd "s-g U") 'git-gutter+-unstage-whole-buffer)))
+     (define-key git-gutter+-mode-map (kbd "C-x M-g t") 'git-gutter+-stage-hunks)
+     (define-key git-gutter+-mode-map (kbd "C-x M-g c") 'git-gutter+-commit)
+     (define-key git-gutter+-mode-map (kbd "C-x M-g C") 'git-gutter+-stage-and-commit)
+     (define-key git-gutter+-mode-map (kbd "C-x M-g C-y") 'git-gutter+-stage-and-commit-whole-buffer)
+     (define-key git-gutter+-mode-map (kbd "C-x M-g U") 'git-gutter+-unstage-whole-buffer)))
 
 ;; Write backup files to own directory
 (defvar --backups-dir (concat user-emacs-directory "backups/"))
